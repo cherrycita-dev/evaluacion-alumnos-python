@@ -1,0 +1,95 @@
+import java.util.*;
+
+public class Main {
+
+    public static double calcularPromedio(ArrayList<Double> calificaciones) {
+        double suma = 0;
+        for (double cal : calificaciones) {
+            suma += cal;
+        }
+        return suma / calificaciones.size();
+    }
+
+    public static String estaAprobado(double promedio) {
+        if (promedio >= 6.0) {
+            return "Aprobado";
+        } else {
+            return "Reprobado";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<HashMap<String, Object>> estudiantes = new ArrayList<>();
+        int totalAprobados = 0;
+        int totalReprobados = 0;
+        int numeroEstudiantes;
+
+        while (true) {
+            try {
+                System.out.print("\nIngrese el número de estudiantes: ");
+                numeroEstudiantes = Integer.parseInt(scanner.nextLine());
+                if (numeroEstudiantes > 0) {
+                    break;
+                }
+                System.out.println("\nEl número de estudiantes debe ser mayor a 0");
+            } catch (NumberFormatException e) {
+                System.out.println("\nEntrada no válida. Por favor, ingresa un número entero.");
+            }
+        }
+
+        for (int i = 0; i < numeroEstudiantes; i++) {
+            System.out.println("\nEstudiante " + (i + 1));
+            HashMap<String, Object> estudiante = new HashMap<>();
+
+            System.out.print("Nombre: ");
+            String nombre = scanner.nextLine().trim();
+            estudiante.put("nombre", nombre);
+
+            ArrayList<Double> calificaciones = new ArrayList<>();
+
+            for (int j = 0; j < 3; j++) {
+                while (true) {
+                    try {
+                        System.out.print("Calificación " + (j + 1) + ": ");
+                        double cal = Double.parseDouble(scanner.nextLine());
+                        if (cal >= 0 && cal <= 10) {
+                            calificaciones.add(cal);
+                            break;
+                        } else {
+                            System.out.println("La calificación debe estar entre 0 y 10.");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Entrada no válida. Ingresa un número decimal entre 0 y 10.");
+                    }
+                }
+            }
+
+            estudiante.put("calificaciones", calificaciones);
+            double promedio = calcularPromedio(calificaciones);
+            estudiante.put("promedio", promedio);
+
+            String estado = estaAprobado(promedio);
+            estudiante.put("estado", estado);
+
+            if (estado.equals("Aprobado")) {
+                totalAprobados += 1;
+            } else {
+                totalReprobados += 1;
+            }
+
+            estudiantes.add(estudiante);
+        }
+
+        System.out.println("\n--- RESULTADOS ---");
+        for (HashMap<String, Object> estudiante : estudiantes) {
+            System.out.printf("%s - Promedio: %.1f - %s\n",
+                    estudiante.get("nombre"),
+                    estudiante.get("promedio"),
+                    estudiante.get("estado"));
+        }
+
+        System.out.println("\nTotal de estudiantes aprobados: " + totalAprobados);
+        System.out.println("Total de estudiantes reprobados: " + totalReprobados);
+    }
+}
