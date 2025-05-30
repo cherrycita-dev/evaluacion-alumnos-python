@@ -18,9 +18,6 @@ Programa en python que:
 - Usa listas o diccionarios para almacenar los datos.
 - Utiliza range() para controlat el número de iterciones.
 
-## Requisitos
-Java 8 o superior.
-
 ## Pasos para Ejecutar el Programa
 
 1. **Clonar el Repositorio**:
@@ -29,25 +26,20 @@ Java 8 o superior.
    ```bash
    [git clone https://https://github.com/cherrycita-dev/evaluacion-alumnos-python]
    
-2. Abrir el Proyecto: Abre el archivo Main.java en tu IDE o editor preferido.
+2. Abrir el Proyecto: Abre el archivo .py en tu IDE o editor preferido.
 
-3. Compilar el Programa: Si estás utilizando un terminal, navega a la carpeta del proyecto y ejecuta el siguiente comando para compilar el código:
+3. Compilar el Programa.
 
-   ```bash
-   javac Main.java
-   ```
-
-4. Ejecutar el Programa: Una vez compilado el código, ejecuta el siguiente comando en el terminal:
-   ```bash
-   java  Main
-   ```
+4. Ejecutar el Programa.
 
 5. Ingresar valores: El programa pedirá al usuario que ingrese ciertos datos.
 
 ## Tecnologías Utilizadas
-- Lenguaje: [Java]  
-- GitHub para el control de versiones.  
-- Microsoft Planner para la gestión de tareas.  
+- Lenguaje: [Python]  
+- GitHub para el control de versiones.
+
+## OTROS
+También de desarrollo el programa en el lenguaje Java, el código se puede encontrar en el repositorio.
 
 ## Autores
 Desarrollado por 
